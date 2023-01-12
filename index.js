@@ -1,6 +1,7 @@
 const express = require('express');
 const { FakeUser } = require('./mockUser')
 const { fakePassport } = require('./fakePassport');
+const { getSecretHomepageContentOperation } = require('./operations');
 
 const app = new express()
 
@@ -18,11 +19,7 @@ app.use((req, _, next) => {
 
 
 app.get('/', (req, res) => {
-  if (req.user.isAdmin) {
-    res.send('super secret internal company details\n');
-    return;
-  }
-  res.send('hi\n');
+  res.send(getSecretHomepageContentOperation(req.user.isAdmin));
 })
 
 

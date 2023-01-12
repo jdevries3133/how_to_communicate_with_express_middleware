@@ -4,7 +4,7 @@
  * req.user.isAdmin will be false
  */
 
-const MOCK_USER_ID = 2;
+const MOCK_USER_ID = 1;
 
 module.exports = {
   fakePassport: (req, _, next) => {
